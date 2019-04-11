@@ -1,0 +1,110 @@
+#updateUserImg {
+  width: 900px;
+  height: 100vh;
+  margin:0 auto;
+  background: white;
+  position:relative;
+  border-left:1px dashed #b2b2b2;
+  border-right:1px dashed #b2b2b2;
+  .userImgPanel {
+    width: calc (100% - 30px);
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    filter:blur(4px);
+    margin:0 15px;
+    display: flex;
+    flex-flow:row;
+    justify-content:center;
+    line-height: 300px;
+  }
+  .circle{
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    border:3px solid white;
+    align-self:center;
+    animation: circleRound 2s linear infinite;
+  }
+  .circle1{
+    width:85%;
+    height:85%;
+    content:'';
+    border-radius: 50%;
+    animation: circleRound1 1s linear infinite;
+    margin:10%;
+  }
+  .circle2{
+    width:80%;
+    height:80%;
+    content:'';
+    border-radius: 50%;
+    animation: circleRound2 1s linear infinite;
+    margin:10%;
+  }
+  .userImg{
+    width:150px;
+    height:150px;
+    border:2px solid white;
+    border-radius: 50%;
+    position:absolute;
+    top:75px;
+    z-index: 2;
+    left:373px;
+  }
+  .ant-upload {
+    height: 55px !important;
+    width: 100% !important;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2em;
+    color: #218cff;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom-color:#218cff ;
+  }
+}
+.colorSpan{
+  text-decoration: underline;
+  color:hotpink;
+  cursor:pointer;
+}
+@keyframes circleRound {
+  0%{
+    width:150px;
+    height:150px;
+    border:3px solid white;
+    opacity: 1;
+  }
+  100%{
+    width:300px;
+    height:300px;
+    border:7px solid #b6b6b6;
+    opacity: 0;
+  }
+}
+@keyframes circleRound1 {
+  0%{
+    border:3px solid white;
+    opacity: 1;
+    margin:calc(10% - 3px)
+  }
+  100%{
+    border:7px solid #b6b6b6;
+    opacity: 0.2;
+    margin:calc(10% - 7px)
+  }
+}
+@keyframes circleRound2 {
+  0%{
+    border:3px solid #c4c4c4;
+    opacity: 0.8;
+    margin:calc(10% - 3px)
+  }
+  100%{
+    border:7px solid white;
+    opacity: 0.1;
+    margin:calc(10% - 7px)
+  }
+}

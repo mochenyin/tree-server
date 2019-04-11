@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table</title>
+</head>
+<body>
+<button id="test1">append操作</button>
+
+<div class="container">
+    <table id="inner1"></table>
+</div>
+<script type="text/javascript">
+    document.getElementById('test1').onclick=function(){
+        document.getElementById('inner1').innerHTML='<tr><p>test</p></tr>'
+    }
+</script>
+</body>
+</html>

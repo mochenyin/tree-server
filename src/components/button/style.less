@@ -1,0 +1,58 @@
+@import '../../style/theme.less';
+@import 'mixin.less';
+@btn-prefix-cls: ~'button';
+@base-button-height:36px;
+@small-button-height:28px;
+@large-button-height:42px;
+.@{btn-prefix-cls}{
+  font-family:@font-family ;
+  cursor:pointer;
+}
+.button-middle-style(@color){
+  .button-style(@color;@white-color;@base-padding-horizontal;@base-padding-vertical;@base-font-size;@border-radius)
+}
+.button-small-style(@color){
+  .button-style(@color;@white-color;@base-padding-horizontal-sm;@base-padding-vertical-sm;@base-font-size-sm;@border-radius-sm)
+}
+.@{btn-prefix-cls}-primary-middle{
+  .button-middle-style(@primary-color)
+}
+
+.@{btn-prefix-cls}-success-middle{
+  .button-middle-style(@success-color)
+}
+
+.@{btn-prefix-cls}-warning-middle{
+  .button-middle-style(@warning-color)
+}
+
+.@{btn-prefix-cls}-error-middle{
+  .button-middle-style(@error-color)
+}
+
+.@{btn-prefix-cls}-passion-middle{
+  .button-middle-style(@purple-color)
+}
+
+.@{btn-prefix-cls}-primary-small{
+  .button-small-style(@primary-color)
+}
+
+.@{btn-prefix-cls}-success-small{
+  .button-small-style(@success-color)
+}
+
+.@{btn-prefix-cls}-warning-small{
+  .button-small-style(@warning-color)
+}
+
+.@{btn-prefix-cls}-error-small{
+  .button-small-style(@error-color)
+}
+
+.@{btn-prefix-cls}-passion-small{
+  .button-small-style(@purple-color)
+}
+
+
+
