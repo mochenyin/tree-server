@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c1d39c7-9ea5-4c36-8927-f8fdc05c6334" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2c1d39c7-9ea5-4c36-8927-f8fdc05c6334" name="Default Changelist" comment="first" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -36,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/indexPage/gamePage.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="143" column="19" lean-forward="true" selection-start-line="143" selection-start-column="19" selection-end-line="143" selection-end-column="19" />
+            <state relative-caret-position="408">
+              <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -374,7 +372,7 @@
       <workItem from="1554193617786" duration="518000" />
       <workItem from="1554702259918" duration="16262000" />
       <workItem from="1554773275757" duration="3370000" />
-      <workItem from="1554970974351" duration="3548000" />
+      <workItem from="1554970974351" duration="3985000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1554974578337</created>
@@ -387,7 +385,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="276535000" />
+    <option name="totallyTimeSpent" value="276972000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -765,8 +763,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/indexPage/gamePage.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="143" column="19" lean-forward="true" selection-start-line="143" selection-start-column="19" selection-end-line="143" selection-end-column="19" />
+        <state relative-caret-position="408">
+          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
