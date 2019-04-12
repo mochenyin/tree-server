@@ -1,4 +1,4 @@
-export interface UserInfoProtype{
+export interface UserInfoProtype {
     addTime?: string;
     description?: string;
     realName?: string;

@@ -2,8 +2,8 @@
 import * as React from 'react';
 import {Button,message,Form, Input,Row,Col,Modal} from 'antd';
 import '../uploadPic/commonComp.scss';
-import {Ajax,setCookie,getCookie,delCookie} from '../../common/common'
-import {UserInfoProtype} from '../../common/commonInterface'
+import {Ajax,setCookie,getCookie,delCookie} from '../../common/common';
+import {UserInfoProtype} from '../../common/commonInterface';
 import { FormComponentProps } from 'antd/lib/form';
 const { TextArea } = Input;
 const AES=require('../../common/getInfoByAES');
@@ -15,7 +15,7 @@ interface UserFormProps extends FormComponentProps {
     isUpdatePwdPanel?:boolean;
 }
 class RegistrationForm extends React.Component<UserFormProps,any> {
-    constructor(props:UserFormProps){
+    constructor(props:UserFormProps) {
         super(props);
         this.state = {
             confirmDirty: false,
@@ -32,34 +32,34 @@ class RegistrationForm extends React.Component<UserFormProps,any> {
                 console.log('Received values of form: ', values);
                 let datas=values;
                 datas.userId=_this.props.userInfo.userId;
-                Ajax.post('/updateUserInfo',{...datas}).then(result=>{
-                    if(result.isException){
+                Ajax.post('/updateUserInfo',{...datas}).then(result=> {
+                    if(result.isException) {
                        message.success('保存成功！');
                        _this.props.getUserInfo();
                     }
                 });
             }
-            else{
+            else {
                 console.error(err);
             }
         });
-    };
-    getRandomNum=(length)=>{
+    }
+    getRandomNum=(length)=> {
         let oArray=new Array(length).fill(0);
-        oArray=oArray.map(item=>{
+        oArray=oArray.map(item=> {
             return Math.floor(Math.random()*10);
         });
         return  oArray;
-    };
-    handleUpdatePwdSubmit=(e,type?:string)=>{
+    }
+    handleUpdatePwdSubmit=(e,type?:string)=> {
         e.preventDefault();
         const _this=this;
         const userInfo=_this.props.userInfo;
         _this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
-                if(type==='getCheckNumber'){
-                    if(this.state.isNotSendEmail){
-                        message.warning('请在一分钟后再次发送！')
+                if(type==='getCheckNumber') {
+                    if(this.state.isNotSendEmail) {
+                        message.warning('请在一分钟后再次发送！');
                     }
                     _this.setState({isNotSendEmail:true});
                     let checkArray=this.getRandomNum(4);
@@ -67,86 +67,86 @@ class RegistrationForm extends React.Component<UserFormProps,any> {
                     const checkWords=checkArray.join('');
                     const commonWords=commonArray.join('');
                     const someWords=AES.aesEncrypt(checkWords,commonWords);
-                    Ajax.post('/checkMailMsg',{userId:userInfo.userId,email:values.userEmail,someWords,commonWords}).then(result=>{
-                        if(result.isException){
+                    Ajax.post('/checkMailMsg',{userId:userInfo.userId,email:values.userEmail,someWords,commonWords}).then(result=> {
+                        if(result.isException) {
                             message.success('已向该邮箱发送验证码，10分钟内有效');
                             setCookie('commonWords',commonWords,0.007);//10分钟后过期;
                             setCookie('someWords',AES.aesEncrypt(checkWords,commonWords),0.007);//10分钟后过期;
                         }
                     });
-                    setTimeout(()=>{
-                        _this.setState({isNotSendEmail:false})
-                    },10000)
+                    setTimeout(()=> {
+                        _this.setState({isNotSendEmail:false});
+                    },10000);
                 }
-                else if(type==='checkNumber'){
+                else if(type==='checkNumber') {
                     _this.setState({isNotCheck:true});
                     if(_this.state.isNotCheck) return;
-                    Ajax.post('/checkMail',{userId:userInfo.userId,email:values.userEmail}).then(result=>{
-                        if(result.isException&&result.data.length){
+                    Ajax.post('/checkMail',{userId:userInfo.userId,email:values.userEmail}).then(result=> {
+                        if(result.isException&&result.data.length) {
                             let checkNumber=values.checkNumber;
-                            if(!checkNumber){
+                            if(!checkNumber) {
                                 message.error('请输入验证码！');
                                 return;
                             }
                             const commonWords=getCookie('commonWords');
                             const someWords=getCookie('someWords');
-                            if(!someWords||!commonWords){
+                            if(!someWords||!commonWords) {
                                 message.warning('验证码已失效！');
                                 return;
                             }
                             const curentWords=AES.aesDecrypt(someWords,commonWords);
-                            if(checkNumber==curentWords){
+                            if(checkNumber===curentWords) {
                                 message.success('验证成功！');
-                                _this.setState({isUpdateToPwd:true})
+                                _this.setState({isUpdateToPwd:true});
                             }
-                            else{
-                                message.error('验证失败！')
+                            else {
+                                message.error('验证失败！');
                             }
                         }
-                        else{
-                            message.warning('您输入的邮箱与您注册时填写的邮箱不一致！')
+                        else {
+                            message.warning('您输入的邮箱与您注册时填写的邮箱不一致！');
                         }
-                    }).then(()=>{
+                    }).then(()=> {
                         _this.setState({isNotCheck:false});
-                    }).catch(error=>{
+                    }).catch(error=> {
                         _this.setState({isNotCheck:false});
                     });
                 }
-                else{
+                else {
                     let userPwd=values.userPwd;
                     let confirmPwd=values.confirmPwd;
-                    if(userPwd!==confirmPwd){
+                    if(userPwd!==confirmPwd) {
                         message.warning('两次输入不一致！');
                         return;
                     }
                     const someWords=AES.aesEncrypt(userPwd,'mochenyin');
-                    Ajax.post('/updatePwd',{userId:userInfo.userId,someWords}).then(result=>{
-                        if(result.isException){
+                    Ajax.post('/updatePwd',{userId:userInfo.userId,someWords}).then(result=> {
+                        if(result.isException) {
                             message.success('修改成功！');
                             _this.openUpdatePwdPanel();
                             _this.loginOut();
                         }
-                        else{
-                            message.warning('修改失败！')
+                        else {
+                            message.warning('修改失败！');
                         }
-                    })
+                    });
                 }
                 console.log('Received UpdatePwd values of form: ', values);
             }
-            else{
+            else {
                 console.error(err);
             }
         });
-    };
-    changeContent(){
-        this.props.changeContent('indexPage')
     }
-    openUpdatePwdPanel(){
+    changeContent() {
+        this.props.changeContent('indexPage');
+    }
+    openUpdatePwdPanel() {
         this.setState({isUpdatePwdPanel:!this.state.isUpdatePwdPanel,...this.state.isUpdatePwdPanel?{
                 isUpdateToPwd:false,isNotCheck:false,isNotSendEmail:false
-            }:{}})
+            }:{}});
     }
-    loginOut(){
+    loginOut() {
         delCookie('userId');
         delCookie('commonWords');
         delCookie('someWords');

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface DialogProps{
+interface DialogProps {
     visible:boolean;//控制modal是否可见
     width?:number|string;//modal框宽度，高度根据内容自动调整
     title?:React.ReactNode|string;//modal标题
@@ -32,28 +32,28 @@ interface State {
 
 }
 
-class Dialog extends React.Component<DialogProps,State>{
-   constructor(props:DialogProps){
+class Dialog extends React.Component<DialogProps,State> {
+   constructor(props:DialogProps) {
        super(props);
-       this.state={
+       this.state= {
 
        };
    }
-   clickMask=(e:React.MouseEvent<HTMLDivElement>)=>{
+   clickMask=(e:React.MouseEvent<HTMLDivElement>)=> {
        e.stopPropagation();
        const {maskClosable,onCancel}=this.props;
        if(!maskClosable||(e.target as HTMLElement).className!=='modal-mask') return;
-       if(onCancel){
-           onCancel(e)
+       if(onCancel) {
+           onCancel(e);
        }
-   };
-   render(){
+   }
+   render() {
        const {closable,title,width,style,children,visible,footer}=this.props;
-       let modalStyle:React.CSSProperties={};
-       if(style){
+       let modalStyle:React.CSSProperties= {};
+       if(style) {
            modalStyle=Object.assign({},style);
        }
-       if(width){
+       if(width) {
            modalStyle.width=width+'px';
        }
        return (<div className='modal-mask' style={{display:visible?'block':'none'}} onClick={this.clickMask}>
@@ -67,7 +67,7 @@ class Dialog extends React.Component<DialogProps,State>{
                        {typeof footer==='function'?footer():footer}
                </div>}
            </div>
-       </div>)
+       </div>);
    }
 }
 

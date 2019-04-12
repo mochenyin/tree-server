@@ -2,7 +2,7 @@
   "jsRules": {
     "class-name": true,
     "comment-format": [
-      true,
+      false,
       "check-space"
     ],
     "indent": [
@@ -19,7 +19,7 @@
       "check-whitespace"
     ],
     "quotemark": [
-      true,
+      false,
       "double"
     ],
     "semicolon": [
@@ -35,7 +35,7 @@
       "ban-keywords"
     ],
     "whitespace": [
-      true,
+      false,
       "check-branch",
       "check-decl",
       "check-operator",
@@ -46,7 +46,7 @@
   "rules": {
     "class-name": true,
     "comment-format": [
-      true,
+      false,
       "check-space"
     ],
     "indent": [
@@ -64,7 +64,7 @@
       "check-whitespace"
     ],
     "quotemark": [
-      true,
+      false,
       "double"
     ],
     "semicolon": [
@@ -90,7 +90,7 @@
       "ban-keywords"
     ],
     "whitespace": [
-      true,
+      false,
       "check-branch",
       "check-decl",
       "check-operator",

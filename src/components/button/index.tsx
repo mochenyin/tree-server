@@ -39,14 +39,14 @@ interface ButtonProps {
     icon?:React.ReactNode;
 }
 
-class Button extends React.Component<ButtonProps,{}>{
+class Button extends React.Component<ButtonProps,{}> {
     static defaultProps={
         size:'middle',
         type:'primary',
     };
     size:string;
     type:string;
-    constructor(props:ButtonProps){
+    constructor(props:ButtonProps) {
         super(props);
         this.size=Button.defaultProps.size;
         this.type=Button.defaultProps.type;
@@ -60,8 +60,8 @@ class Button extends React.Component<ButtonProps,{}>{
         if (onClick) {
             (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
         }
-    };
-    render(){
+    }
+    render() {
        const {size,type,style,className,children}=this.props;
        const prefixCls:string=`button button-${type||this.type}-${size||this.size}`;
        return (
@@ -71,7 +71,7 @@ class Button extends React.Component<ButtonProps,{}>{
               style={style}>
               {React.Children.map(children, child => <span>{child}</span>)}
           </button>
-       )
+       );
     }
 }
 

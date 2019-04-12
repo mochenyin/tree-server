@@ -1,25 +1,25 @@
 import * as React from 'react';
 import './index.less';
-import {Ajax,getCookie} from '../../common/common'
+import {Ajax,getCookie} from '../../common/common';
 import {Input,message,Popover,Row,Col} from 'antd';
 import IndexBody from './body';
-import {UserInfoProtype} from '../../common/commonInterface'
+import {UserInfoProtype} from '../../common/commonInterface';
 
 interface State {
     className:string;
     isUpdateClassName:boolean;
     imageTop:number;
 }
-interface Props{
+interface Props {
     userInfo: UserInfoProtype;
     changeContent:(pageKey:string)=>void;
-};
+}
 const tabIndex=Math.ceil(Math.random()*10/3);
-class IndexPage extends React.Component<Props,State>{//第一个是props,第二个是state，组件内用到的props和state需要符合对应接口的结构,此组件不需用到props，所以此处传{}
+class IndexPage extends React.Component<Props,State> {//第一个是props,第二个是state，组件内用到的props和state需要符合对应接口的结构,此组件不需用到props，所以此处传{}
     private bodyBox: React.RefObject<HTMLDivElement>;
-    constructor(props:Props){
+    constructor(props:Props) {
         super(props);
-        this.state={
+        this.state= {
             className:'headerPanel',
             isUpdateClassName:false,
             imageTop:120,
@@ -27,30 +27,30 @@ class IndexPage extends React.Component<Props,State>{//第一个是props,第二�
         this.bodyBox=React.createRef();
         this.changeContent=this.changeContent.bind(this);
     }
-    onScroll=()=>{
+    onScroll=()=> {
         const imageTop=this.bodyBox.current.scrollTop;
         if(imageTop>280) return;
         let initTop=this.state.imageTop;
-        if(imageTop>50&&!this.state.isUpdateClassName){
-            this.setState({className:'headerPanel specialHeader',isUpdateClassName:true})
+        if(imageTop>50&&!this.state.isUpdateClassName) {
+            this.setState({className:'headerPanel specialHeader',isUpdateClassName:true});
         }
-        else if(imageTop<50&&this.state.isUpdateClassName){
-            this.setState({className:'headerPanel',isUpdateClassName:false})
+        else if(imageTop<50&&this.state.isUpdateClassName) {
+            this.setState({className:'headerPanel',isUpdateClassName:false});
         }
-        if(imageTop<280){
-            if(imageTop<initTop){
-                this.setState({imageTop:imageTop===0?120:initTop-7})
+        if(imageTop<280) {
+            if(imageTop<initTop) {
+                this.setState({imageTop:imageTop===0?120:initTop-7});
             }
-            else{
-                this.setState({imageTop:initTop+7})
+            else {
+                this.setState({imageTop:initTop+7});
             }
         }
-    };
-    clickIndexLogo(){
+    }
+    clickIndexLogo() {
         location.reload();
     }
-    changeContent(pageKey:string){
-      this.props.changeContent(pageKey)
+    changeContent(pageKey:string) {
+      this.props.changeContent(pageKey);
     }
     public render() {
         const {className,imageTop}=this.state;

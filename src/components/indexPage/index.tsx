@@ -1,37 +1,37 @@
 import * as React from 'react';
 import './index.less';
-import {Ajax,getCookie} from '../../common/common'
+import {Ajax,getCookie} from '../../common/common';
 import IndexPage from './indexPage';
 import UserSetPage from './userSetPage';
-import {UserInfoProtype} from '../../common/commonInterface'
-import GamePage from './gamePage'
+import {UserInfoProtype} from '../../common/commonInterface';
+import GamePage from './gamePage';
 interface State {
    userInfo:UserInfoProtype;
   activePage:string;
 }
-class IndexContent extends React.Component<{},State>{//第一个是props,第二个是state，组件内用到的props和state需要符合对应接口的结构,此组件不需用到props，所以此处传{}
-    constructor(props:Object){
+class IndexContent extends React.Component<{},State> {//第一个是props,第二个是state，组件内用到的props和state需要符合对应接口的结构,此组件不需用到props，所以此处传{}
+    constructor(props:Object) {
         super(props);
-        this.state={
+        this.state= {
             userInfo:{},
             activePage:'indexPage'
         };
         this.changeContent=this.changeContent.bind(this);
         this.getUserInfo=this.getUserInfo.bind(this);
     }
-    componentDidMount(){
+    componentDidMount() {
        this.getUserInfo();
     }
-    getUserInfo(){
-        Ajax.post('/getUserInfo',{userId:getCookie('userId')}).then(result=>{
-            if(result.isException){
-                if(result.data.length){
-                    this.setState({userInfo:result.data[0]})
+    getUserInfo() {
+        Ajax.post('/getUserInfo',{userId:getCookie('userId')}).then(result=> {
+            if(result.isException) {
+                if(result.data.length) {
+                    this.setState({userInfo:result.data[0]});
                 }
             }
-        })
+        });
     }
-    changeContent(activePage){
+    changeContent(activePage) {
        this.setState({activePage});
     }
     public render() {
@@ -51,7 +51,7 @@ class IndexContent extends React.Component<{},State>{//第一个是props,第二�
                 content=null;
                 break;
         }
-        return (content)
+        return (content);
     }
 }
 
