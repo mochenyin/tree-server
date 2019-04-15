@@ -144,7 +144,10 @@
     font-weight: 700;
     font-size:17px;
     position: relative;
-    top:150px;
+    top:140px;
+  }
+  .ant-tabs,.ant-tabs-content{
+    height:100%;
   }
   .barder{
     width:642px;
@@ -185,5 +188,39 @@
   }
   .white{
     background: red;
+  }
+}
+
+#pianoPanel{
+  width:1196px;
+  height:140px;
+  display: flex;
+  flex-flow: row;
+  border:1px solid black;
+  border-right:none !important;
+  background: white;
+  margin-top:200px;
+  .singleKeyItem{
+    flex:1;
+    cursor:pointer;
+    height:100%;
+    display: inline-block;
+    border-right:1px solid black;
+    position: relative;
+    z-index: 0;
+  }
+  .blackKey{
+    display: inline-block;
+    width:70%;
+    height:50%;
+    position: absolute;
+    z-index: 9;
+    background:black;
+  }
+  .center{
+    left:65%;
+  }
+  .right{
+    left:82%;
   }
 }
