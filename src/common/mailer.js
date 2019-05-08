@@ -2,8 +2,8 @@ var $nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 var  email={
     service: 'QQ', //用QQ账号作为发送方账号
-    user: '978145022@qq.com',
-    pass: 'djohnkvsxpnjbcgc',//qq邮箱使用授权码
+    user: '123456@qq.com',
+    pass: '************',//qq邮箱使用授权码
 };
 
 var _sendMail= $nodemailer.createTransport(smtpTransport({
