@@ -7,7 +7,7 @@ const mySql = require('mysql');
         port:'3306',
         database:'myProject',
         user:'root',
-        password:'Nchu3245'
+        password:'*********'
     });
     //连接错误，2秒重试
     conn.connect(function (err,connection) {
