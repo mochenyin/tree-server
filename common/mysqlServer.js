@@ -1,13 +1,10 @@
-/**
- * Created by SWSD on 2018-11-02.
- */
 const mySql = require('mysql');
     var conn = mySql.createConnection({
         host:'127.0.0.1',
         port:'3306',
-        database:'myProject',
+        database:'my_project',
         user:'root',
-        password:'*********'
+        password:'Nchu3245'
     });
     //连接错误，2秒重试
     conn.connect(function (err,connection) {
